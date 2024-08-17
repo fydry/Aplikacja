@@ -5,7 +5,7 @@
   <title>Items list</title>
 </head>
 <body>
-<h1>Itemss list</h1>
+<h1>Items list</h1>
 <%@ include file="../menu.jsp" %>
 <table>
   <thead>
@@ -24,6 +24,9 @@
       <td>${p.id}</td>
       <td>${p.name}</td>
       <td>${p.description}</td>
+      <td>${p.category}</td>
+      <td>${p.unit}</td>
+      <td>${p.price}</td>
       <td>
         <a href="/itemForm/edit/${p.id}">Edit</a>
         <a href="/itemForm/confirmDel/${p.id}">Delete</a>

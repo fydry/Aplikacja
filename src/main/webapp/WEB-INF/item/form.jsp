@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<h1>Add/edit item</h1>
+<h1>Add items</h1>
 <%@ include file="../menu.jsp" %>
 <form:form method="post" modelAttribute="item" action="/itemForm/form">
     <form:hidden path="id"/>
@@ -20,7 +20,7 @@
         <form:errors path="name" cssClass="error"/>
     </label>
     <hr/>
-    <label>Category:
+    <label>Description:
         <form:input path="description"/>
         <form:errors path="description" cssClass="error"/>
     </label>
@@ -30,7 +30,7 @@
         <form:errors path="category" cssClass="error"/>
     </label>
     <hr/>
-    <label>Category:
+    <label>Unit:
         <form:input path="unit"/>
         <form:errors path="unit" cssClass="error"/>
     </label>
