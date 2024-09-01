@@ -158,38 +158,32 @@
     </ul>
 </div>
 <div class="content">
-    <h1>Items list</h1>
-    <table>
-        <thead>
+<h1>Customers list</h1>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${customers}" var="p" varStatus="status">
         <tr>
-            <th>#</th>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Unit</th>
-            <th>Price</th>
-            <th>Action</th>
+            <td>${status.index + 1}</td>
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td>${p.address}</td>
+            <td>
+                <a href="/customerForm/edit/${p.id}">Edit</a>
+                <a href="/customerForm/confirmDel/${p.id}">Delete</a>
+            </td>
         </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${items}" var="p" varStatus="status">
-            <tr>
-                <td>${status.index + 1}</td>
-                <td>${p.id}</td>
-                <td>${p.name}</td>
-                <td>${p.description}</td>
-                <td>${p.category}</td>
-                <td>${p.unit}</td>
-                <td>${p.price}</td>
-                <td>
-                    <a href="/itemForm/edit/${p.id}">Edit</a>
-                    <a href="/itemForm/confirmDel/${p.id}">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    </c:forEach>
+    </tbody>
+</table>
 </div>
 </body>
 </html>

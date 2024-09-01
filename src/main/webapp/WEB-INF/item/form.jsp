@@ -4,9 +4,21 @@
 <head>
     <title>Item form</title>
     <style>
+
         .error {
             color: red;
             font-weight: bold;
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            text-align: right;
         }
     </style>
 </head>
@@ -16,30 +28,32 @@
 <form:form method="post" modelAttribute="item" action="/itemForm/form">
     <form:hidden path="id"/>
     <label>Name:
-        <form:input path="name"/>
+        <form:input path="name" cssClass="form-group"/>
         <form:errors path="name" cssClass="error"/>
     </label>
     <hr/>
     <label>Description:
-        <form:input path="description"/>
+        <form:input path="description" cssClass="form-group"/>
         <form:errors path="description" cssClass="error"/>
     </label>
     <hr/>
     <label>Category:
-        <form:input path="category"/>
+        <form:input path="category" cssClass="form-group"/>
         <form:errors path="category" cssClass="error"/>
     </label>
     <hr/>
     <label>Unit:
-        <form:input path="unit"/>
+        <form:input path="unit" cssClass="form-group"/>
         <form:errors path="unit" cssClass="error"/>
     </label>
     <hr/>
     <label>Price:
-        <form:input path="price"/>
+        <form:input path="price" cssClass="form-group"/>
         <form:errors path="price" cssClass="error"/>
     </label>
-    <form:button>Save</form:button>
+
+    <label><form:button>Save</form:button></label>
+
 </form:form>
 </body>
 <head>
