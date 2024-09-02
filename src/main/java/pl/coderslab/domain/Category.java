@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Set;
 
 @Entity
 @Table(name="categories")
@@ -16,23 +15,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @NotBlank
     private String name;
-    @OneToMany(mappedBy = "categories")
-    Set<Item> Item;
-    private Set<Item> item;
-
-    public Set<Item> getItem() {
-        return Item;
-    }
-
-    public void setItem(Set<Item> item) {
-        this.item = item;
-    }
-
-
-
-
 
     public Category(String name) {this.name = name;}
 

@@ -1,12 +1,11 @@
 package pl.coderslab.domain;
 
-
-
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "items")
@@ -21,8 +20,8 @@ public class Item {
     @NotBlank
     private String description;
 
+    @NotNull
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     @NotBlank
