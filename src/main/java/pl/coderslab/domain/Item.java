@@ -25,6 +25,7 @@ public class Item {
     @NotBlank
     private String price;
 
+
     public Item(String name, String description, String category, String unit, String price) {
         this.name = name;
         this.description = description;
@@ -60,13 +61,6 @@ public class Item {
         this.description = description;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public String getUnit() {
         return unit;
@@ -82,6 +76,14 @@ public class Item {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory( String category) {
+        this.category = category;
     }
 
     @Override
