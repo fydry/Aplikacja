@@ -38,7 +38,7 @@
     </label>
     <hr/>
     <label>Category:
-        <form:input path="category" cssClass="form-group"/>
+        <form:select path="category" items="${categories}" itemValue="id" itemLabel="name" cssClass="form-group"/>
         <form:errors path="category" cssClass="error"/>
     </label>
     <hr/>

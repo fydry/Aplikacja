@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
+import pl.coderslab.domain.Category;
 import pl.coderslab.domain.Item;
 
 import javax.persistence.EntityManager;
@@ -35,6 +36,16 @@ public class ItemDao {
     }
 
     public List<Item> findAll() {
-        return entityManager.createQuery("SELECT i FROM Item i").getResultList();
+        return entityManager.createQuery("SELECT i FROM Item i", Item.class).getResultList();
+    }
+
+    public List<Item> findAllWithCategory() {
+        return entityManager.createQuery("SELECT i FROM Item i JOIN i.category", Item.class).getResultList();
+    }
+    public List<Item> findAllWithCategory(Category category) {
+        return entityManager.createQuery("SELECT i FROM Item i WHERE i.category = :category", Item.class)
+                .setParameter("category", category)
+                .getResultList();
+
     }
 }

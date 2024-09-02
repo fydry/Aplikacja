@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Items list</title>
+    <title>Categories list</title>
     <style>
         /* Resetowanie domyślnych stylów przeglądarki */
         body {
@@ -160,32 +160,27 @@
     </ul>
 </div>
 <div class="content">
-<h1>Customers list</h1>
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${customers}" var="p" varStatus="status">
+    <h1>Categories list</h1>
+    <table>
+        <thead>
         <tr>
-            <td>${status.index + 1}</td>
-            <td>${p.id}</td>
-            <td>${p.name}</td>
-            <td>${p.address}</td>
-            <td>
-                <a href="/customerForm/edit/${p.id}">Edit</a>
-                <a href="/customerForm/confirmDel/${p.id}">Delete</a>
-            </td>
+            <th>Id</th>
+            <th>Name</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach items="${categories}" var="p">
+            <tr>
+                <td>${p.id}</td>
+                <td>${p.name}</td>
+                <td>
+                    <a href="/categoryForm/edit/${p.id}">Edit</a>
+                    <a href="/categoryForm/confirmDel/${p.id}">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

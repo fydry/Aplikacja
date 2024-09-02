@@ -155,6 +155,8 @@
         <li><a href="/itemForm/form">Add items</a></li>
         <li><a href="/customerForm/list">Customers list</a></li>
         <li><a href="/customerForm/form">Add customers</a></li>
+        <li><a href="/categoryForm/list">Categories list</a></li>
+        <li><a href="/categoryForm/form">Add category</a></li>
     </ul>
 </div>
 <div class="content">
@@ -179,7 +181,7 @@
                 <td>${p.id}</td>
                 <td>${p.name}</td>
                 <td>${p.description}</td>
-                <td>${p.category}</td>
+                <td>${p.category.name}</td>
                 <td>${p.unit}</td>
                 <td>${p.price}</td>
                 <td>

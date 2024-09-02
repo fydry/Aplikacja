@@ -3,24 +3,29 @@ package pl.coderslab.controller;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.dao.CategoryDao;
 import pl.coderslab.dao.ItemDao;
+import pl.coderslab.domain.Category;
 import pl.coderslab.domain.Item;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/itemForm")
 public class ItemFormController {
 
     private final ItemDao itemDao;
+    private final CategoryDao categoryDao;
 
-    public ItemFormController(ItemDao itemDao) {
+    public ItemFormController(ItemDao itemDao, CategoryDao categoryDao) {
         this.itemDao = itemDao;
+        this.categoryDao = categoryDao;
     }
+
+    @ModelAttribute("categories")
+    public List<Category> categories(){ return categoryDao.findAllCategories();}
 
     @GetMapping("/form")
     public String form(Model model) {

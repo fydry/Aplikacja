@@ -1,7 +1,12 @@
 package pl.coderslab.domain;
 
+
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+
 
 @Entity
 @Table(name = "items")
@@ -16,8 +21,9 @@ public class Item {
     @NotBlank
     private String description;
 
-    @NotBlank
-    private String category;
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
 
     @NotBlank
     private String unit;
@@ -26,10 +32,9 @@ public class Item {
     private String price;
 
 
-    public Item(String name, String description, String category, String unit, String price) {
+    public Item(String name, String description, String unit, String price) {
         this.name = name;
         this.description = description;
-        this.category = category;
         this.unit = unit;
         this.price = price;
     }
@@ -78,11 +83,11 @@ public class Item {
         this.price = price;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory( String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -91,6 +96,10 @@ public class Item {
         return "Item{" +
                 "id=" + id +
                 ", name=" + name +
+                ", description=" + description +
+                ", category=" + category +
+                ", unit=" + unit +
+                ", price=" + price +
                 '}';
     }
 }
