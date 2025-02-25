@@ -3,24 +3,6 @@
 <html>
 <head>
     <title>Item form</title>
-    <style>
-
-        .error {
-            color: red;
-            font-weight: bold;
-        }
-        .form-group {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .form-group label {
-            text-align: right;
-        }
-    </style>
 </head>
 <body>
 <h1>Add items</h1>

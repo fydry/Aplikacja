@@ -3,12 +3,6 @@
 <html>
 <head>
   <title>Category</title>
-  <style>
-    .error {
-      color: red;
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
 <h1>Add/edit category</h1>
