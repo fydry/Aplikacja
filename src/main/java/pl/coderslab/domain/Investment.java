@@ -25,10 +25,16 @@ public class Investment {
     @NotBlank
     private String description;
 
+
+
     public BigDecimal getTotalCost() {
         return items.stream()
                 .map(Item::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public Investment() {
+
     }
 
     public Investment(Long id, Customer customer, List<Item> items, String description) {
