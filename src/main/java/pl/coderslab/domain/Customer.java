@@ -2,6 +2,7 @@ package pl.coderslab.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Table(name= "customers")
@@ -15,6 +16,9 @@ public class Customer {
 
     @NotBlank
     private String address;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Investment> investments;
 
     public Customer(String name, String address) {
         this.name = name;
