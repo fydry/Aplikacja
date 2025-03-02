@@ -4,7 +4,6 @@ package pl.coderslab.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -14,34 +13,33 @@ public class Investment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    private String name;
+
+    @NotBlank
+    private String address;
+
     @NotNull
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "investments", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "investment", cascade = CascadeType.ALL)
     private List<Item> items;
 
     @NotBlank
     private String description;
 
-
-
-    public BigDecimal getTotalCost() {
-        return items.stream()
-                .map(Item::getPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
-
-    public Investment() {
-
-    }
-
-    public Investment(Long id, Customer customer, List<Item> items, String description) {
+    public Investment(Long id, String name, String address, Customer customer, List<Item> items, String description) {
         this.id = id;
+        this.name = name;
+        this.address = address;
         this.customer = customer;
         this.items = items;
         this.description = description;
+    }
+
+    public Investment() {
     }
 
     public Long getId() {
@@ -50,6 +48,14 @@ public class Investment {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public @NotNull Customer getCustomer() {
@@ -75,4 +81,6 @@ public class Investment {
     public void setDescription(@NotBlank String description) {
         this.description = description;
     }
+
+
 }
