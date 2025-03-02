@@ -17,8 +17,8 @@ public class Customer {
     @NotBlank
     private String address;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Investment> investments;
+   // @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+   // private List<Investment> investments;
 
     public Customer(String name, String address) {
         this.name = name;

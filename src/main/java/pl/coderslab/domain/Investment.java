@@ -1,4 +1,4 @@
-package pl.coderslab.domain;
+/*package pl.coderslab.domain;
 
 
 import javax.persistence.*;
@@ -83,4 +83,4 @@ public class Investment {
     }
 
 
-}
+}*/
