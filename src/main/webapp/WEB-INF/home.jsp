@@ -6,6 +6,8 @@
 <body>
 <div class=menu>
     <ul>
+        <li><a href="/investmentForm/list">Investments List</a></li>
+        <li><a href="/investmentForm/form">Add Investments</a></li>
         <li><a href="/itemForm/list">Items List</a></li>
         <li><a href="/itemForm/form">Add Items</a></li>
         <li><a href="/customerForm/list">Customers List</a></li>
